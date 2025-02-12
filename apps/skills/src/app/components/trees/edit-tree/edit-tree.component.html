@@ -1,0 +1,29 @@
+
+<div *ngFor="let ab of array; index i"> 
+    <!-- // ^ tree -->
+    <visualiser> 
+        <!-- //visualiser -->
+        <div node>
+            <node> 
+                <!-- // node -->
+                <div title>
+                    <h2>{{ab.stepType}}</h2>
+                </div>
+                <div description>
+                    description
+                </div>
+                <div actionButton>
+                    <button (click)="addSmth()">action </button>
+                </div>
+                <div addLogic>
+                    <button (click)="addSmth()">addLogic </button>
+                </div>
+            </node>
+        </div>
+        
+        <div edge> 
+            <!-- // add button  -->
+            <button (click)="addSmth()">+</button>
+        </div>
+    </visualiser>
+</div>
