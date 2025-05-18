@@ -70,6 +70,76 @@
 
 <hr>
 
+<h3>Actions</h3>
+
+<p> Are events caused by: </p>
+<ul>
+    <li>User Interactions with the page</li>
+    <li>[External] Network Requests</li>
+    <li>TODO: Other events</li>
+</ul>
+<p>Actions are simple Intefaces that have a single property <code>type</code> type string.</p>
+<div>
+    <code>
+        <!-- {
+            type: '[Login Page] Login',
+            username: string;
+            password: string;
+          } -->
+    </code>
+</div>
+
+<p>1. Before developing a feature, write out the actions. Example: <code>[Login Page] Login</code>, <code>[Login Page] Login Success</code>, <code>[Login Page] Login Error</code></p>
+<p>2. Divide, categorize actions based on the event source, Example <code>[Login Page]</code> and <code>[Auth API]</code></p>
+<p>3. Write as much Actions as you need, they're inexpensive.</p>
+<p>4. They are Event based, not command based. So tha means that actions should describe what happened, not tell the app what to do.</code></p>
+<p>5. Be specific on Actions type and props, example <code>createAction('[Cart Page] Add Item To Cart', props<{ productId: string }>())
+</code></p>
+
+<strong>Tip</strong>
+<p>Use the below helper function for the usual pattern of action creations.</p>
+<code> 
+    <!-- export function createHTTPActions<RequestPayload = void, ResponsePayload = void, ErrorPayload = ResponseError>(
+  actionType: string,
+): [
+  ActionCreator<string, (props?: RequestPayload) => {
+      payload: RequestPayload;
+  } & TypedAction<string>>,
+  ActionCreator<string, (props?: ResponsePayload) => {
+      payload: ResponsePayload;
+  } & TypedAction<string>>,
+  ActionCreator<string, (props?: ErrorPayload) => {
+      payload: ErrorPayload;
+  } & TypedAction<string>>,
+] {
+  return [
+    createAction(actionType, (payload: RequestPayload) => ({payload})),
+    createAction(
+      `${actionType} Success`,
+      (payload?: ResponsePayload) => ({payload})),
+    createAction(`${actionType} Error`, (payload: ErrorPayload) => ({payload})),
+  ];
+} 
+  const [ loadData, loadDataSucces, loadDataError ] = createHTTPActions<Parameters, ResponseData, ResponseError>('[Some Component] Load Data');
+    
+  this.store.dispatch(loadData({/* the actual request data */}));
+-->
+</code>
+
+<strong>Questions</strong>
+<p>What should dispatch an action?</p>
+
+<hr>
+
+<h3>Store</h3>
+
+<p></p>
+
+<div style="background-color: azure; border: 1px solid black; padding: 10px">
+    <!-- <code>imports: [StoreModule.forRoot({ count: counterReducer })],</code> -->
+</div>
+
+<hr>
 
 <p>List of different apps:</p>
 <button [routerLink]="'./counter-app'">
