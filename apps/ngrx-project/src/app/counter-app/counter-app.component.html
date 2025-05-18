@@ -1,0 +1,28 @@
+
+
+<div style="display: flex;">
+    <div style="width: 200px;">
+        <button (click)="increment()">Increment</button>
+
+        
+        <div>Current Count: {{ count$ | async }}</div>
+        
+        <button (click)="decrement()">Decrement</button>
+        
+        <button (click)="reset()">Reset Counter</button>
+    </div>
+    <div style="background-color: azure; border: 1px solid black; padding: 10px">
+        <code >
+            export const increment = createAction('[Counter Component] Increment');<br>
+            <br>
+            export const counterReducer = createReducer(<br>
+            initialState,<br>
+            on(increment, (state) => state + 1),<br>
+            );<br>
+            <br>
+            this.count$ = store.select('count');<br>
+            <br>
+            this.store.dispatch(increment());<br>
+        </code>
+    </div>
+</div>

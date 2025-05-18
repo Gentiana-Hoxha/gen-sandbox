@@ -1,0 +1,30 @@
+<ng-container *ngIf="books$ | async as books">
+  <h2>Books</h2>
+
+    <div
+    class="book-item"
+    *ngFor="let book of books"
+  >
+    <p>{{book.volumeInfo.title}}</p><span> by {{book.volumeInfo.authors}}</span>
+    <button
+      (click)="onAdd(book.id)"
+      data-test="add-button"
+    >Add to Collection</button>
+  </div>
+  
+</ng-container>
+
+<ng-container *ngIf="bookCollection$ | async as bookCollection">
+  <h2>My Collection</h2>
+  
+  <div 
+    class="book-item"
+    *ngFor="let book of bookCollection"
+  >
+    <p>{{book.volumeInfo.title}}</p><span> by {{book.volumeInfo.authors}}</span>
+    <button
+      (click)="onRemove(book.id)"
+      data-test="remove-button"
+    >Remove from Collection</button>
+  </div>
+</ng-container>

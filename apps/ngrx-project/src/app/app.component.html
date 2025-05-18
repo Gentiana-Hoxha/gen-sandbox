@@ -1,1 +1,84 @@
+<h1>NgRX Project</h1>
+
+<strong>
+    What is NgRX?
+</strong>
+<p>
+    It's a Framework for reactive Apps
+</p>
+<ul>
+    <li>Have one place to manage everything that goes one in one app - One source of truth.</li>
+    <li>Clean archirtecture and isoltated effects - mistakes are isolated</li>
+    <li>Entity collection management. - TODO: To be added</li>
+    <li>Integrated with Router - TODO: To be added</li>
+</ul>
+
+<strong>Questions</strong>
+<p> What where is the limit to what can be part of this State? </p>
+<p> Why use NgRX? Why not continuing with simply using Services for managing the state? </p>
+<p> How do I know that I'm making the correct archirtecture? </p>
+<p> What are the things I should take into consideration before using this framework?</p>
+
+<hr>
+<strong>State</strong>
+<ul>
+    <li>Store - The Source of Truth that has ans knows everything</li>
+    <li>Effects - Every action has an "effect" "Newton Law"</li>
+    <li>Router Store - The Source of Truth that has ans knows everything about the Route</li>
+    <li>Entity - TODO: To add</li>
+    <li>Signals - Source of Truth for a single component </li>
+    <li>ComponentStore - TODO: To add</li>
+    <li>Operators - TODO: to add</li>
+</ul>
+
+<strong>Data</strong>
+<hr>
+<strong>View</strong>
+<hr>
+<strong>Dev Tools</strong>
+
+<hr>
+
+<h3>Store</h3>
+
+<p>You have 1 source of Truth that is Immutable, Type Defined and Encapsulated</p>
+<p>Allows us to follow with the Single Responsibility Principle.</p>
+<p>Makes change detection a relatively straightforward task using the OnPush strategy.</p>
+<p>TODO: Add more about Serializability and Testibility</p>
+
+<strong>When do we need Store?</strong>
+<p>Do we need to communicate the Data/State between different components or apps or libs.</p>
+<p>TODO: Is state persisted and rehydrated from external storage</p>
+<p>Do we need this State to be available of while re-entering routes?</p>
+<p>Does this Data change depending on users Actions or side effects?</p>
+<p>TODO: Retrieved: state that must be retrieved with a side-effect.</p>
+
+<hr>
+
+<h3> Key Actors </h3>
+<p> Action - Events triggered by users and dispatched by the Components or Services.</p>
+<p> Reducers - Are pure functions the ones that handle the Actions and construct a new State on every change - Resason is becuase state is immutable </p>
+<p> Selectors - Are pure functions that derive State</p>
+<p>Store - An observable of the State </p>
+
+<strong>Questtions</strong>
+<p> What if the Action is not caused by a User but by something else - like an initialization of a page, or receiving a cirtain data?</p>
+<p> Can Effects cause Actions? </p>
+<p> What if we need to have a Reducer that is not Pure? </p>
+<p> Do reducers reconstruct the whole state or just parts of it?</p>
+<p> Can the selecotrs gather different parts of the state and return a completly new Object and not just a part of the State? </p>
+
+<hr>
+
+
+<p>List of different apps:</p>
+<button [routerLink]="'./counter-app'">
+    Counter App
+</button>
+<button [routerLink]="'./book-app'">
+    Book App
+</button>
+
+<hr>
+
 <router-outlet></router-outlet>
